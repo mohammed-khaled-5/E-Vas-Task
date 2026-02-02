@@ -13,7 +13,7 @@ public class TestClientConcurrent {
 
     private static final String SERVER_HOST = "127.0.0.1";
     private static final int SERVER_PORT = 9090;
-    private static final int CLIENT_COUNT = 10; // number of concurrent clients
+    private static final int CLIENT_COUNT = 15; // number of concurrent clients
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(CLIENT_COUNT);

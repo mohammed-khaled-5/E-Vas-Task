@@ -70,6 +70,11 @@ Expected response: `ALLOW` or `DENY`.
 There is also a simple concurrent client in:
 - `src/main/java/com/example/ratelimiter/TestClientConcurrent.java`
 
+Run the concurrent client (15 clients; with default limit 10/min, expect 5 DENY):
+```bash
+mvn -q -DskipTests exec:java -Dexec.mainClass=com.example.ratelimiter.TestClientConcurrent
+```
+
 ## Tests
 Integration-style tests validate Redis-backed rate limiting behavior.
 

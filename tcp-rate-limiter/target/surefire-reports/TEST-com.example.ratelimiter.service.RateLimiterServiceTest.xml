@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.ratelimiter.service.RateLimiterServiceTest" time="2.968" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="redis.port" value="6379"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\target\test-classes;E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\target\classes;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Lenovo\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\Lenovo\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\Lenovo\.m2\repository\redis\clients\jedis\5.1.0\jedis-5.1.0.jar;C:\Users\Lenovo\.m2\repository\org\apache\commons\commons-pool2\2.12.0\commons-pool2-2.12.0.jar;C:\Users\Lenovo\.m2\repository\org\json\json\20231013\json-20231013.jar;C:\Users\Lenovo\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\Lenovo\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\Lenovo\.m2\repository\org\slf4j\slf4j-simple\2.0.13\slf4j-simple-2.0.13.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Africa/Cairo"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="E:\Program Files\Java\jdk-24\bin"/>
+    <property name="sun.java.command" value="C:\Users\Lenovo\AppData\Local\Temp\surefire1037438375829364954\surefirebooter-20260202231943650_3.jar C:\Users\Lenovo\AppData\Local\Temp\surefire1037438375829364954 2026-02-02T23-19-40_574-jvmRun1 surefire-20260202231943650_1tmp surefire_0-20260202231943650_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\target\test-classes;E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\target\classes;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Lenovo\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\Lenovo\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\Lenovo\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\Lenovo\.m2\repository\redis\clients\jedis\5.1.0\jedis-5.1.0.jar;C:\Users\Lenovo\.m2\repository\org\apache\commons\commons-pool2\2.12.0\commons-pool2-2.12.0.jar;C:\Users\Lenovo\.m2\repository\org\json\json\20231013\json-20231013.jar;C:\Users\Lenovo\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\Lenovo\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\Lenovo\.m2\repository\org\slf4j\slf4j-simple\2.0.13\slf4j-simple-2.0.13.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Lenovo"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-03-18"/>
+    <property name="java.home" value="E:\Program Files\Java\jdk-24"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="redis.host" value="localhost"/>
+    <property name="surefire.real.class.path" value="C:\Users\Lenovo\AppData\Local\Temp\surefire1037438375829364954\surefirebooter-20260202231943650_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24+36-3646"/>
+    <property name="user.name" value="Lenovo"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="rate.maxRequests" value="3"/>
+    <property name="localRepository" value="C:\Users\Lenovo\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Lenovo\AppData\Local\Temp\"/>
+    <property name="java.version" value="24"/>
+    <property name="user.dir" value="E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="rate.windowSeconds" value="2"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="E:\Program Files\Java\jdk-24\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\Lenovo\AppData\Local\cloud-code\installer\google-cloud-sdk\bin;c:\Users\Lenovo\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\Lenovo\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Users\Lenovo\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Lenovo\AppData\Local\Programs\Python\Python313\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;E:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;E:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;E:\xampp-8.2\php;E:\composer;C:\Users\Lenovo\AppData\Roaming\Composer\vendor\bin;E:\program files\PostgreSQL\18\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Apache\maven\apache-maven-3.9.12\bin;C:\Program Files\MongoDB\Server\8.0\bin;C:\Users\Lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\Lenovo\AppData\Local\Programs\Microsoft VS Code\bin;E:\Program Files\JetBrains\IntelliJ IDEA 2024.3.5\bin;;E:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\bin;;E:\Users\Lenovo\AppData\Local\Programs\cursor\resources\app\bin;E:\Users\Lenovo\AppData\Local\Programs\mongosh\;E:\program files\nodejs\node_modules\npm\bin;E:\program files\nodejs\;C:\Users\Lenovo\AppData\Roaming\npm;C:\Users\Lenovo\AppData\Local\GitHubDesktop\bin;C:\Users\Lenovo\AppData\Roaming\Composer\vendor\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="24+36-3646"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+  </properties>
+  <testcase name="resetsAfterWindowExpires" classname="com.example.ratelimiter.service.RateLimiterServiceTest" time="2.799">
+    <system-err><![CDATA[2026-02-02 23:19:45 [main] WARN com.example.ratelimiter.service.RateLimiterService - Request denied | clientIp=test-3008d1b5-9665-499e-bf36-19b30684025d | reason=RATE_LIMIT_EXCEEDED | count=4
+]]></system-err>
+  </testcase>
+  <testcase name="allowsUpToLimitAndDeniesAfter" classname="com.example.ratelimiter.service.RateLimiterServiceTest" time="0.011">
+    <system-err><![CDATA[2026-02-02 23:19:47 [main] WARN com.example.ratelimiter.service.RateLimiterService - Request denied | clientIp=test-929998ac-d92b-444c-bcb6-84861e9b1a38 | reason=RATE_LIMIT_EXCEEDED | count=4
+]]></system-err>
+  </testcase>
+</testsuite>
