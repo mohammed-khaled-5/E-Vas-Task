@@ -3,4 +3,4 @@ E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\rate
 E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\ratelimiter\server\ClientHandler.java
 E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\ratelimiter\server\TcpRateLimiterServer.java
 E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\ratelimiter\service\RateLimiterService.java
-E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\ratelimiter\TestClient.java
+E:\Iti\Projects\tcp-rate-limiter\tcp-rate-limiter\src\main\java\com\example\ratelimiter\TestClientConcurrent.java

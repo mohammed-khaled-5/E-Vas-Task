@@ -1,6 +1,6 @@
 com\example\ratelimiter\redis\RedisClient.class
+com\example\ratelimiter\TestClientConcurrent.class
 com\example\ratelimiter\service\RateLimiterService.class
-com\example\ratelimiter\TestClient.class
 com\example\ratelimiter\App.class
 com\example\ratelimiter\server\TcpRateLimiterServer.class
 com\example\ratelimiter\server\ClientHandler.class
