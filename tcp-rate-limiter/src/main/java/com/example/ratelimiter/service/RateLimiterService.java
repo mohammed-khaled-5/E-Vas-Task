@@ -9,11 +9,13 @@ public class RateLimiterService {
 
     private static final Logger logger = LoggerFactory.getLogger(RateLimiterService.class);
 
-    private static final int MAX_REQUESTS = 10;
-    private static final int WINDOW_SECONDS = 5;
+    private static final int MAX_REQUESTS = intConfig("RATE_LIMIT_MAX_REQUESTS", "rate.maxRequests", 10);
+    private static final int WINDOW_SECONDS = intConfig("RATE_LIMIT_WINDOW_SECONDS", "rate.windowSeconds", 60);
+    private static final String REDIS_HOST = stringConfig("REDIS_HOST", "redis.host", "localhost");
+    private static final int REDIS_PORT = intConfig("REDIS_PORT", "redis.port", 6379);
 
     // Thread-safe pool
-    private static final JedisPool jedisPool = new JedisPool("localhost", 6379);
+    private static final JedisPool jedisPool = new JedisPool(REDIS_HOST, REDIS_PORT);
 
     public boolean allowRequest(String clientIp) {
         String key = "rate:" + clientIp;
@@ -36,5 +38,29 @@ public class RateLimiterService {
 
             return allowed;
         }
+    }
+
+    private static int intConfig(String envKey, String propKey, int defaultValue) {
+        String value = System.getenv(envKey);
+        if (value == null || value.isBlank()) {
+            value = System.getProperty(propKey);
+        }
+        if (value == null || value.isBlank()) {
+            return defaultValue;
+        }
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException e) {
+            logger.warn("Invalid int config for {} / {}: {}", envKey, propKey, value);
+            return defaultValue;
+        }
+    }
+
+    private static String stringConfig(String envKey, String propKey, String defaultValue) {
+        String value = System.getenv(envKey);
+        if (value == null || value.isBlank()) {
+            value = System.getProperty(propKey);
+        }
+        return (value == null || value.isBlank()) ? defaultValue : value.trim();
     }
 }
