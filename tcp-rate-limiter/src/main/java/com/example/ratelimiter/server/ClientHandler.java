@@ -32,22 +32,21 @@ public class ClientHandler implements Runnable {
                 clientSocket.getOutputStream(), true
             )
         ) {
-            String request = in.readLine();
+            String request;
+            while ((request = in.readLine()) != null) {
+                if ("REQUEST".equals(request)) {
+                    boolean allowed = rateLimiterService.allowRequest(clientIp);
 
-            if ("REQUEST".equals(request)) {
-                boolean allowed = rateLimiterService.allowRequest(clientIp);
-
-                if (allowed) {
-                    out.println("ALLOW");
-                    logger.info("Request allowed | clientIp={}", clientIp);
+                    if (allowed) {
+                        out.println("ALLOW");
+                        logger.info("Request allowed | clientIp={}", clientIp);
+                    } else {
+                        out.println("DENY"); // Already logged in RateLimiterService
+                    }
                 } else {
-                    out.println("DENY"); // Already logged in RateLimiterService
+                    out.println("INVALID");
+                    logger.warn("Invalid request | clientIp={} | request={}", clientIp, request);
                 }
-
-
-            } else {
-                out.println("INVALID");
-                logger.warn("Invalid request | clientIp={} | request={}", clientIp, request);
             }
 
         } catch (IOException e) {
