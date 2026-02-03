@@ -1,1 +1,5 @@
+com\example\ratelimiter\service\SlidingWindowUnitTest$FakeClock.class
 com\example\ratelimiter\service\RateLimiterServiceTest.class
+com\example\ratelimiter\service\SlidingWindowUnitTest.class
+com\example\ratelimiter\service\SlidingWindowUnitTest$1.class
+com\example\ratelimiter\service\SlidingWindowUnitTest$InMemorySlidingWindowRateLimiter.class

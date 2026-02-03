@@ -13,11 +13,12 @@ import java.net.Socket;
 public class ClientHandler implements Runnable {
 
     private final Socket clientSocket;
-    private static final RateLimiterService rateLimiterService = new RateLimiterService();
+    private final RateLimiterService rateLimiterService;
     private static final Logger logger = LoggerFactory.getLogger(ClientHandler.class);
 
-    public ClientHandler(Socket clientSocket) {
+    public ClientHandler(Socket clientSocket, RateLimiterService rateLimiterService) {
         this.clientSocket = clientSocket;
+        this.rateLimiterService = rateLimiterService;
     }
 
     @Override

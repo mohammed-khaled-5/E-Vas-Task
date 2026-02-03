@@ -1,3 +1,5 @@
+com\example\ratelimiter\service\RateLimiter.class
+com\example\ratelimiter\service\SlidingWindowRedisRateLimiter.class
 com\example\ratelimiter\TestClientConcurrent.class
 com\example\ratelimiter\service\RateLimiterService.class
 com\example\ratelimiter\App.class

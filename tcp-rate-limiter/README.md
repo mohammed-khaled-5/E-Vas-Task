@@ -14,6 +14,10 @@ Raw TCP rate limiter built with Java sockets and Redis. Clients send `REQUEST` o
 - Maven 3.8+
 - Redis running locally (default `localhost:6379`)
 
+### Start Redis on docker 
+```bash
+docker run --name redis-rate-limiter -p 6379:6379 -d redis
+
 ## Build
 ```bash
 mvn clean package
@@ -87,15 +91,16 @@ Notes:
 - If Redis is not running, the tests will be skipped.
 
 ## Rate Limiting Algorithm
-Fixed window counter per client:
-1. `INCR rate:<clientId>`
-2. If the counter is `1`, set `EXPIRE rate:<clientId> <windowSeconds>`
-3. Allow when `count <= maxRequests`, otherwise deny
+Sliding window per client using a Redis sorted set:
+1. Remove timestamps older than `now - window`
+2. Count remaining timestamps
+3. If count >= limit, deny
+4. Otherwise, add the current timestamp and allow
 
-This is simple and fast, with correctness under concurrency due to Redis atomic operations.
+This is atomic via a Redis Lua script to ensure correctness under concurrency.
 
 ## Project Structure
 - `src/main/java/com/example/ratelimiter/server` - TCP server and client handler
 - `src/main/java/com/example/ratelimiter/service` - Rate limiter logic using Redis
-- `src/test/java/com/example/ratelimiter/service` - Integration tests
+- `src/test/java/com/example/ratelimiter/service` - Unit + integration tests
 

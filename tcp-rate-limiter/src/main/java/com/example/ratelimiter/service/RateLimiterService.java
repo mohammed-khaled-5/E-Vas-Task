@@ -2,8 +2,6 @@ package com.example.ratelimiter.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 public class RateLimiterService {
 
@@ -14,30 +12,33 @@ public class RateLimiterService {
     private static final String REDIS_HOST = stringConfig("REDIS_HOST", "redis.host", "localhost");
     private static final int REDIS_PORT = intConfig("REDIS_PORT", "redis.port", 6379);
 
-    // Thread-safe pool
-    private static final JedisPool jedisPool = new JedisPool(REDIS_HOST, REDIS_PORT);
+    private final RateLimiter limiter;
 
     public boolean allowRequest(String clientIp) {
         String key = "rate:" + clientIp;
 
-        try (Jedis jedis = jedisPool.getResource()) {
-            long count = jedis.incr(key);
+        boolean allowed = limiter.allow(key);
 
-            if (count == 1) {
-                jedis.expire(key, WINDOW_SECONDS);
-            }
-
-            boolean allowed = count <= MAX_REQUESTS;
-
-            if (!allowed) {
-                logger.warn(
-                    "Request denied | clientIp={} | reason=RATE_LIMIT_EXCEEDED | count={}",
-                    clientIp, count
-                );
-            }
-
-            return allowed;
+        if (!allowed) {
+            logger.warn(
+                "Request denied | clientIp={} | reason=RATE_LIMIT_EXCEEDED",
+                clientIp
+            );
         }
+
+        return allowed;
+    }
+
+    public RateLimiterService() {
+        this(new SlidingWindowRedisRateLimiter(REDIS_HOST, REDIS_PORT, MAX_REQUESTS, WINDOW_SECONDS));
+    }
+
+    RateLimiterService(RateLimiter limiter) {
+        this.limiter = limiter;
+    }
+
+    public void close() {
+        limiter.close();
     }
 
     private static int intConfig(String envKey, String propKey, int defaultValue) {
