@@ -3,7 +3,7 @@
 Raw TCP rate limiter built with Java sockets and Redis. Clients send `REQUEST` over TCP; the server responds with `ALLOW` or `DENY` based on a per-client rate limit.
 
 
-### 🖥️ Client-Side Results
+###  Client-Side Results
 
 The following screenshot shows the output from the concurrent test client.
 
@@ -14,7 +14,7 @@ The following screenshot shows the output from the concurrent test client.
 <img src="/screenshots/client.PNG" width="700" />
 
 
-### 🖧 Server-Side Logs
+###  Server-Side Logs
 
 The screenshot below shows the server logs during the same test execution.
 
