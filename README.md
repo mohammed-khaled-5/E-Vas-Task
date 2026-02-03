@@ -2,6 +2,32 @@
 
 Raw TCP rate limiter built with Java sockets and Redis. Clients send `REQUEST` over TCP; the server responds with `ALLOW` or `DENY` based on a per-client rate limit.
 
+
+### 🖥️ Client-Side Results
+
+The following screenshot shows the output from the concurrent test client.
+
+- **10 requests** were **ALLOWED**
+- **5 requests** were **DENIED**
+- Denied requests occurred after exceeding the configured rate limit
+
+<img src="/screenshots/client.PNG" width="700" />
+
+
+### 🖧 Server-Side Logs
+
+The screenshot below shows the server logs during the same test execution.
+
+- Each incoming client connection is logged
+- Allowed requests are logged normally
+- Denied requests are logged with the reason:  
+  **`RATE_LIMIT_EXCEEDED`**
+- This confirms that rate limiting is enforced consistently on the server side
+
+<img src="/screenshots/server.PNG" width="700" />
+
+
+
 ## Features
 - Raw TCP server using `ServerSocket`
 - Concurrent client handling with a thread pool
